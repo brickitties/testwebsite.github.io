@@ -317,8 +317,12 @@ pre {
 
 				.header .logo .symbol img {
 					display: block;
-					width: 42em;
-					height: 6em;
+					max-width: 80%;
+					width: auto;
+					height: auto;
+					position: relative;
+					left: 0;
+					padding: 15px;
 				}
 
 
@@ -690,7 +694,7 @@ button[disabled], html input[disabled] {
 
 		.nav-bars {
 			position: absolute;
-			right: 15px;
+			right: 0px;
 			width: auto;
 			height: auto;
 			top: 15px;
