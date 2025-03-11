@@ -208,7 +208,7 @@ body.menu-open {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 10px;
-    display: inline-block; /* Change to inline-block to fit the content */
+    display: flex; /* Change to inline-block to fit the content */
     text-align: center;
     color: #fff;
     margin: auto; /* Center the overlay within the box */
