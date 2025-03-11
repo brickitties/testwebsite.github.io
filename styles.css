@@ -136,12 +136,11 @@ body.menu-open {
     justify-content: space-around;
     width: 100%;
     gap: 10px; /* Use gap to handle spacing between items */
+    flex-wrap: wrap; /* Ensure items wrap to the next line if necessary */
 }
 
-.box {
+.box, .widebox {
     flex: 1;
-    width: 150px;
-    height: 150px;
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -149,25 +148,16 @@ body.menu-open {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    position: relative;
+    position: relative; /* Ensure the overlay is positioned relative to the box */
     border-radius: 10px; /* Add rounded edges */
     overflow: hidden; /* Ensure the overlay does not overflow the box */
+    min-width: 200px; /* Ensure boxes have a minimum width */
+    min-height: 150px; /* Ensure boxes have a minimum height */
 }
 
 .widebox {
-    flex: 1;
     width: 300px;
     height: 150px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    position: relative;
-    border-radius: 10px; /* Add rounded edges */
-    overflow: hidden; /* Ensure the overlay does not overflow the box */
 }
 
 .box1 { background-color: #f6d6ad; }
@@ -204,22 +194,37 @@ body.menu-open {
     border-radius: 10px; /* Add rounded edges */
 }
 
+/* Ensure the overlay takes up the full width and adjusts height based on content */
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    padding: 10px;
-    display: flex; /* Change to flex to take up the whole box */
-    justify-content: center; /* Center the content horizontally */
-    align-items: center; /* Center the content vertically */
+    padding: 2%; /* Initial padding for small screens */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: #fff;
-    position: absolute; /* Position it absolutely within the box */
-    top: 0;
+    position: absolute;
     left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto; /* Center the overlay within the box */
+    width: 100%; /* Ensure the overlay takes up the full width */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    /* Remove vertical centering */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
 }
+
+@media (min-width: 600px) {
+    .overlay {
+        padding: 3%; /* Increase padding for larger screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .overlay {
+        padding: 4%; /* Further increase padding for even larger screens */
+    }
+}
+
 .overlay-full {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
@@ -257,4 +262,34 @@ body.menu-open {
 a.box, a.widebox {
     text-decoration: none; /* Remove underline from links */
     position: relative; /* Ensure the overlay-full covers the whole box */
+}
+
+/* Additional styles to ensure the overlay takes over the whole box if it exceeds 80% of the box height */
+.overlay-auto-full {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+@media (min-width: 600px) {
+    .overlay-auto-full {
+        padding: 3%;
+    }
+}
+
+@media (min-width: 900px) {
+    .overlay-auto-full {
+        padding: 4%;
+    }
 }
