@@ -131,13 +131,16 @@ body.menu-open {
 }
 
 .nested-flex-container {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
+    width: 100%;
+    gap: 10px; /* Use gap to handle spacing between items */
 }
 
 .box {
     flex: 1;
-    width: calc(100% / 3 - 20px); /* Adjust width to account for margin */
+    width: 150px;
     height: 150px;
     margin: 10px;
     display: flex;
@@ -147,11 +150,13 @@ body.menu-open {
     font-weight: bold;
     color: #fff;
     position: relative;
+    border-radius: 10px; /* Add rounded edges */
+    overflow: hidden; /* Ensure the overlay does not overflow the box */
 }
 
 .widebox {
-    flex: 2;
-    width: calc(100% / 3 * 2 - 20px); /* Adjust width to account for margin */
+    flex: 1;
+    width: 300px;
     height: 150px;
     margin: 10px;
     display: flex;
@@ -161,10 +166,12 @@ body.menu-open {
     font-weight: bold;
     color: #fff;
     position: relative;
+    border-radius: 10px; /* Add rounded edges */
+    overflow: hidden; /* Ensure the overlay does not overflow the box */
 }
 
 .box1 { background-color: #f6d6ad; }
-.box2 { background-color: #f28b82; }
+.box2 { background-color: #0055BF; }
 .box3 { background-color: #aecbfa; }
 .box4 { background-color: #ccff90; }
 .box5 { background-color: #d7aefb; }
@@ -173,30 +180,43 @@ body.menu-open {
     background-image: url('images/ideas.jpeg');
     background-size: cover;
     background-position: center;
+    border-radius: 10px; /* Add rounded edges */
 }
 
 .imagebox2 {
     background-image: url('images/rebrickable.jpeg');
     background-size: cover;
     background-position: center;
+    border-radius: 10px; /* Add rounded edges */
 }
 
 .imagebox3 {
     background-image: url('images/insta.jpeg');
     background-size: cover;
     background-position: center;
+    border-radius: 10px; /* Add rounded edges */
 }
 
 .imagebox4 {
-    background-image: url('images/insta.jpeg');
+    background-image: url('images/show.jpeg');
     background-size: cover;
     background-position: center;
+    border-radius: 10px; /* Add rounded edges */
 }
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
+    display: inline-block; /* Change to inline-block to fit the content */
+    text-align: center;
+    color: #fff;
+    margin: auto; /* Center the overlay within the box */
+}
+
+.overlay-full {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -207,4 +227,28 @@ body.menu-open {
     align-items: center;
     text-align: center;
     color: #fff;
+}
+
+.overlay, .overlay-full p {
+    margin: 0;
+    font-size: clamp(12px, 2vw, 18px); /* Flexible font size */
+}
+
+.overlay-top {
+    align-self: flex-start;
+    margin-top: 5px; /* Add some margin to avoid touching the top edge */
+}
+
+.overlay-center {
+    align-self: center;
+}
+
+.overlay-bottom {
+    align-self: flex-end;
+    margin-bottom: 5px; /* Add some margin to avoid touching the bottom edge */
+}
+
+a.box, a.widebox {
+    text-decoration: none; /* Remove underline from links */
+    position: relative; /* Ensure the overlay-full covers the whole box */
 }
