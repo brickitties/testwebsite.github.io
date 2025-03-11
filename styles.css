@@ -124,23 +124,25 @@ body.menu-open {
 
 .main {
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevent wrapping */
     justify-content: center;
     width: 100%;
     max-width: 900px;
 }
 
+/* Ensure the flex container does not wrap */
 .nested-flex-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
     gap: 10px; /* Use gap to handle spacing between items */
-    flex-wrap: wrap; /* Ensure items wrap to the next line if necessary */
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
+/* Ensure the flex items grow and shrink as needed */
 .box, .widebox {
-    flex: 1;
+    flex: 1 auto; /* Allow boxes to grow and shrink as needed */
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -151,7 +153,7 @@ body.menu-open {
     position: relative; /* Ensure the overlay is positioned relative to the box */
     border-radius: 10px; /* Add rounded edges */
     overflow: hidden; /* Ensure the overlay does not overflow the box */
-    min-width: 200px; /* Ensure boxes have a minimum width */
+    min-width: 100px; /* Ensure boxes have a minimum width */
     min-height: 150px; /* Ensure boxes have a minimum height */
 }
 
@@ -291,5 +293,18 @@ a.box, a.widebox {
 @media (min-width: 900px) {
     .overlay-auto-full {
         padding: 4%;
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .nested-flex-container {
+        justify-content: space-between; /* Adjust spacing between items */
+        flex-wrap: nowrap; /* Prevent wrapping */
+    }
+
+    .box, .widebox {
+        flex: 1 1 auto; /* Allow boxes to grow and shrink as needed */
+        margin: 10px; /* Adjust margin */
     }
 }
