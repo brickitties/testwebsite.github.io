@@ -142,7 +142,7 @@ body.menu-open {
 
 /* Ensure the flex items grow and shrink as needed */
 .box, .widebox {
-    flex: 1 auto; /* Allow boxes to grow and shrink as needed */
+    flex: 1 1 auto; /* Allow boxes to grow and shrink as needed */
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -300,11 +300,10 @@ a.box, a.widebox {
 @media (max-width: 768px) {
     .nested-flex-container {
         justify-content: space-between; /* Adjust spacing between items */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        gap: 2px; /* Reduce gap between items */
     }
 
     .box, .widebox {
-        flex: 1 1 auto; /* Allow boxes to grow and shrink as needed */
-        margin: 10px; /* Adjust margin */
+        margin: 2px; /* Reduce margin between items */
     }
 }
