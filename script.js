@@ -29,4 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.remove('menu-open'); // Remove class from body
         }
     });
+
+    document.querySelectorAll('.overlay').forEach(overlay => {
+        const box = overlay.closest('.box, .widebox');
+        if (overlay.scrollHeight > box.clientHeight * 0.8) {
+            overlay.classList.add('overlay-auto-full');
+        }
+    });
 });
