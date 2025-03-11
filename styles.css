@@ -208,12 +208,18 @@ body.menu-open {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     padding: 10px;
-    display: flex; /* Change to inline-block to fit the content */
+    display: flex; /* Change to flex to take up the whole box */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
     text-align: center;
     color: #fff;
+    position: absolute; /* Position it absolutely within the box */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     margin: auto; /* Center the overlay within the box */
 }
-
 .overlay-full {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 10px;
